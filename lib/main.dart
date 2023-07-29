@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:maps_flutter/smallMenu.dart';
 import 'map.style.dart';
 
 void main() => runApp(const MyApp());
@@ -26,19 +27,26 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       theme: ThemeData(
         useMaterial3: true,
-        colorSchemeSeed: Color.fromARGB(255, 0, 0, 0),
+        colorSchemeSeed: Color.fromARGB(255, 5, 13, 238),
       ),
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Maps Sample App'),
-          elevation: 2,
-        ),
-        body: GoogleMap(
-          onMapCreated: _onMapCreated,
-          initialCameraPosition: CameraPosition(
-            target: _center,
-            zoom: 11.0,
-          ),
+        body:  Stack(
+          children: [
+            GoogleMap(
+              onMapCreated: _onMapCreated,
+              initialCameraPosition: CameraPosition(
+                target: _center,
+                zoom: 11.0,
+              ),
+            ),
+            Positioned(
+              top: MediaQuery.of(context).size.height * 0.05,
+              right: MediaQuery.of(context).size.width * 0.05,
+              child: smallMenu(
+                radius: MediaQuery.of(context).size.width * 0.06
+              )
+            ),
+          ],
         ),
       ),
     );
