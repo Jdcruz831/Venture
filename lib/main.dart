@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:maps_flutter/smallMenu.dart';
+import 'package:maps_flutter/SmallMenu.dart';
 import 'map.style.dart';
 
 void main() => runApp(const MyApp());
@@ -22,6 +22,8 @@ class _MyAppState extends State<MyApp> {
     mapController.setMapStyle(mapStyleJson);
   }
 
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -40,11 +42,9 @@ class _MyAppState extends State<MyApp> {
               ),
             ),
             Positioned(
-              top: MediaQuery.of(context).size.height * 0.05,
+             top: MediaQuery.of(context).size.height * 0.05,
               right: MediaQuery.of(context).size.width * 0.05,
-              child: smallMenu(
-                radius: MediaQuery.of(context).size.width * 0.06
-              )
+              child: smallMenu(radius:  MediaQuery.of(context).size.width * 0.06),
             ),
           ],
         ),
